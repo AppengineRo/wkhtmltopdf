@@ -1,14 +1,17 @@
+This sample is provided by an NGO from Romania called AppEngine
 
-Copyright (C) 2014 Google Inc.
+# Sample 'wkhtmltopdf' application for use with the App Engine Java VM Runtime.
 
-# Sample 'hello world' application for use with the App Engine Java VM Runtime.
+This sample has 2 parts:
+1. [Wkhtmltopdf][5] html to pdf transform tool
+2. A console like browser based interface to execute commands on the VM inside the Docker enviroment. (ssh doesn't really help you with that)
 
 Requires [Apache Maven](http://maven.apache.org) 3.0 or greater, and
 JDK 7+ in order to run.  This application needs to be deployed to the
 [App Engine VM Runtime][1].
 
 Make sure that you are invited to the [VM Runtime Trusted Tester
-Program][2], and have [downloaded the SDK](http://commondatastorage.googleapis.com/gae-vm-runtime-tt/vmruntime_sdks.html).
+Program][2], and have [downloaded the SDK][4].
 
 To build, do the following:
 
@@ -21,8 +24,7 @@ id of an app that has been whitelisted for the VM Runtime.
 
 4. Visit `http://your-app-id.appspot.com/`.
 
-For further information, consult the [Java App
-Engine](https://developers.google.com/appengine/docs/java/overview)
+For further information, consult the [Java App Engine](https://developers.google.com/appengine/docs/java/overview)
 documentation.
 
 To see all the available goals for the App Engine plugin, run
@@ -32,3 +34,6 @@ To see all the available goals for the App Engine plugin, run
 [1]: https://docs.google.com/document/d/1VH1oVarfKILAF_TfvETtPPE3TFzIuWqsa22PtkRkgJ4
 [2]: https://groups.google.com/forum/?fromgroups#!topic/google-appengine/gRZNqlQPKys
 [3]: https://cloud.google.com/console
+[4]: http://commondatastorage.googleapis.com/gae-vm-runtime-tt/vmruntime_sdks.html
+[5]: http://wkhtmltopdf.org/
+[6]: http://en.wikipedia.org/wiki/WTFPL
