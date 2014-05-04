@@ -46,9 +46,8 @@ public class InitServlet extends HttpServlet {
         Runtime rt = Runtime.getRuntime();
 
         Process p;
-        p = rt.exec("wget http://downloads.sourceforge.net/project/wkhtmltopdf/0.12.1-dev/wkhtmltox-0.12.1-f6f29b0_linux-wheezy-amd64.tar.xz");
-        p = rt.exec("tar xf wkhtmltox-0.12.1-f6f29b0_linux-wheezy-amd64.tar.xz -C /");
-        p = rt.exec("cp /wkhtmltox-0.12.1-f6f29b0/bin/wkhtmltopdf /usr/local/bin");
+        p = rt.exec("tar xf wkhtmltox-0.12.1-c22928d_linux-wheezy-amd64.tar.xz -C /");
+        p = rt.exec("cp /wkhtmltox-0.12.1-c22928d/bin/wkhtmltopdf /usr/local/bin");
 
         p.getOutputStream().flush();
         p.getOutputStream().close();

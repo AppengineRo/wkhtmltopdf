@@ -25,7 +25,7 @@
     <vm>true</vm>
     <vm-settings>
         <setting name="machine_type" value="n1-standard-1"/>
-        <setting name="apt_get_install" value="wkhtmltopdf openssl build-essential xorg libssl-dev xvfb"/>
+        <setting name="apt_get_install" value="wget wkhtmltopdf openssl build-essential xorg libssl-dev xvfb"/>
     </vm-settings>
     <manual-scaling>
         <instances>1</instances>

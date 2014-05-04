@@ -60,7 +60,7 @@ public class Htmltopdf extends HttpServlet {
             if(! (url.startsWith("http://") || url.startsWith("https://"))  ){
                 url = "http://" + url;
             }
-            p = rt.exec("xvfb-run -a wkhtmltopdf --disallow-local-file-access --zoom " + zoom + " "+ url +" -");
+            p = rt.exec("xvfb-run -a wkhtmltopdf --quiet --disable-local-file-access --zoom " + zoom + " "+ url +" -");
 
         }else{
             String html = request.getParameter("html");
@@ -68,7 +68,7 @@ public class Htmltopdf extends HttpServlet {
                 response.sendError(404);
                 return;
             }
-            p = rt.exec("xvfb-run -a wkhtmltopdf --disallow-local-file-access --zoom " + zoom + " - -");
+            p = rt.exec("xvfb-run -a wkhtmltopdf --quiet --disable-local-file-access --zoom " + zoom + " - -");
             p.getOutputStream().write(html.getBytes("UTF-8"));
             p.getOutputStream().flush();
             p.getOutputStream().close();

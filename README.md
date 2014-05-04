@@ -6,6 +6,13 @@ This sample has 2 parts:
 1. [Wkhtmltopdf][5] html to pdf transform tool
 2. A console like browser based interface to execute commands on the VM inside the Docker enviroment. (ssh doesn't really help you with that)
 
+To test this sample go to: http://appversion-dot-appmodule-dot-appid.appspot.com
+run this 2 commands in the the first input (in order to update wkhtmltopdf to the latest version):
+1. tar xf wkhtmltox-0.12.1-c22928d_linux-wheezy-amd64.tar.xz -C /
+2. cp /wkhtmltox-0.12.1-c22928d/bin/wkhtmltopdf /usr/local/bin
+
+Then write google.com in the url input, or any html in the textarea and transform your html into pdf.
+
 Requires [Apache Maven](http://maven.apache.org) 3.0 or greater, and
 JDK 7+ in order to run.  This application needs to be deployed to the
 [App Engine VM Runtime][1].
@@ -15,7 +22,7 @@ Program][2], and have [downloaded the SDK][4].
 
 To build, do the following:
 
-1. Change the value of the `application` element in your `appengine-web.xml` to the app
+1. Change the value of the `application`, `module` and `version` elements in your `appengine-web.xml` to the app
 id of an app that has been whitelisted for the VM Runtime.
 2. Run `mvn package`
 3. Run the `appcfg.sh` script from the VM Runtime SDK as follows:
