@@ -50,6 +50,10 @@
         <servlet-name>ro_appengine_server_InitServlet</servlet-name>
         <url-pattern>/init</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ro_appengine_server_InitServlet</servlet-name>
+        <url-pattern>/_ah/warmup</url-pattern>
+    </servlet-mapping>
     <!--<security-constraint>
         <web-resource-collection>
             <web-resource-name>exec</web-resource-name>
