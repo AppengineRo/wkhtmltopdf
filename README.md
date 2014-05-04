@@ -1,4 +1,4 @@
-This sample is provided by an NGO from Romania called AppEngine
+This sample is provided by an NGO from Romania called [Asociatia AppEngine][6]
 
 # Sample 'wkhtmltopdf' application for use with the App Engine Java VM Runtime.
 
@@ -20,7 +20,7 @@ id of an app that has been whitelisted for the VM Runtime.
 2. Run `mvn package`
 3. Run the `appcfg.sh` script from the VM Runtime SDK as follows:
 
-        $ $SDK_DIR/bin/appcfg.sh -s preview.appengine.google.com update target/hello-1.0-SNAPSHOT
+        $ $SDK_DIR/bin/appcfg.sh -s preview.appengine.google.com update target/wkhtmltopdf-1.0-SNAPSHOT
 
 4. Visit `http://your-app-id.appspot.com/`.
 
@@ -36,4 +36,4 @@ To see all the available goals for the App Engine plugin, run
 [3]: https://cloud.google.com/console
 [4]: http://commondatastorage.googleapis.com/gae-vm-runtime-tt/vmruntime_sdks.html
 [5]: http://wkhtmltopdf.org/
-[6]: http://en.wikipedia.org/wiki/WTFPL
+[6]: http://www.appengine.ro/

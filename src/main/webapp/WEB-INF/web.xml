@@ -24,20 +24,21 @@
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
+
     <servlet>
-        <servlet-name>htmltopdf</servlet-name>
+        <servlet-name>ro_appengine_server_Htmltopdf</servlet-name>
         <servlet-class>ro.appengine.server.Htmltopdf</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>htmltopdf</servlet-name>
+        <servlet-name>ro_appengine_server_Htmltopdf</servlet-name>
         <url-pattern>/render.pdf</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>exec</servlet-name>
+        <servlet-name>ro_appengine_server_Exec</servlet-name>
         <servlet-class>ro.appengine.server.Exec</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>exec</servlet-name>
+        <servlet-name>ro_appengine_server_Exec</servlet-name>
         <url-pattern>/exec</url-pattern>
     </servlet-mapping>
 
