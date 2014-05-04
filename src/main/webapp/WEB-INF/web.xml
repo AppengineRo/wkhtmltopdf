@@ -51,16 +51,29 @@
         <url-pattern>/init</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <!--this doesn't get called-->
         <servlet-name>ro_appengine_server_InitServlet</servlet-name>
         <url-pattern>/_ah/warmup</url-pattern>
     </servlet-mapping>
-    <!--<security-constraint>
+
+    <servlet>
+        <servlet-name>ro_appengine_server_Login</servlet-name>
+        <servlet-class>ro.appengine.server.Login</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ro_appengine_server_Login</servlet-name>
+        <url-pattern>/_ah/login_required</url-pattern>
+    </servlet-mapping>
+
+
+    <security-constraint>
         <web-resource-collection>
             <web-resource-name>exec</web-resource-name>
             <url-pattern>/exec</url-pattern>
+            <url-pattern>/admin.jsp</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <role-name>admin</role-name>
         </auth-constraint>
-    </security-constraint>-->
+    </security-constraint>
 </web-app>
