@@ -43,21 +43,18 @@ public class InitServlet extends HttpServlet {
      * @throws java.io.IOException      if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Runtime rt = Runtime.getRuntime();
+        response.setContentType("text/plain; charset=UTF-8");
 
-        Process p;
-        p = rt.exec("tar xf wkhtmltox-0.12.1-c22928d_linux-wheezy-amd64.tar.xz -C /");
-        p = rt.exec("cp /wkhtmltox-0.12.1-c22928d/bin/wkhtmltopdf /usr/local/bin");
+        String tar = Exec.exec("tar xf wkhtmltox-0.12.1-c22928d_linux-wheezy-amd64.tar.xz -C /");
+        response.getWriter().println(tar);
 
-        p.getOutputStream().flush();
-        p.getOutputStream().close();
-        try {
-            rewrite(p.getInputStream(), response.getOutputStream());
-            response.getOutputStream().flush();
-        } finally {
-            p.getInputStream().close();
-            response.getOutputStream().close();
-        }
+        String cp = Exec.exec("cp /wkhtmltox-0.12.1-c22928d/bin/wkhtmltopdf /usr/local/bin");
+        response.getWriter().println(cp);
+
+        String version = Exec.exec("wkhtmltopdf --version");
+        response.getWriter().println(version);
+
+        response.getWriter().flush(); // this is required since there is a bug in the VM. It will be fixed in the future
     }
 
     static void rewrite(InputStream input, OutputStream output) throws IOException {
