@@ -16,11 +16,12 @@ id of an app that has been whitelisted for the VM Runtime.
 
         $ $SDK_DIR/bin/appcfg.sh -s preview.appengine.google.com update target/wkhtmltopdf-1.0-SNAPSHOT
         For further information, consult the [Java App Engine](https://developers.google.com/appengine/docs/java/overview) documentation.
-4. Visit your app on the newly deployed version `http://appversion-dot-appmodule-dot-appid.appspot.com` (the -dot- is mandatory for HTTPS version of the same link)
+4. Visit your app on the newly deployed version `http://appversion-dot-appmodule-dot-appid.appspot.com` ([the -dot- is mandatory for HTTPS version of the same link][7])
 5. go to `/init` so wkhtmltopdf gets updated to latest version (tried /_ah/warmup but it was not called). This should print the 0.12.1 version
 6. go back to the welcome page
 7. write `google.com` in the url input, or any html in the textarea and transform your html into pdf.
-8. If you run in any problems or need new features you can submit bugs.
+8. The console like interface is found at this link: /admin.jsp (it's also protected by admin only security constraint)
+9. If you run in any problems or need new features you can submit bugs.
 
 Requires [Apache Maven](http://maven.apache.org) 3.0 or greater, and
 JDK 7+ in order to run.  This application needs to be deployed to the
@@ -39,3 +40,4 @@ To see all the available goals for the App Engine plugin, run
 [4]: http://commondatastorage.googleapis.com/gae-vm-runtime-tt/vmruntime_sdks.html
 [5]: http://wkhtmltopdf.org/
 [6]: http://www.appengine.ro/
+[7]: https://developers.google.com/appengine/docs/ssl
