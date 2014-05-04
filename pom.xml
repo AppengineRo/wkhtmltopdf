@@ -87,7 +87,6 @@
                 <version>${appengine.target.version}</version>
                 <configuration>
                     <server>preview.appengine.google.com</server>
-                    <instance>0</instance>
                 </configuration>
             </plugin>
         </plugins>
