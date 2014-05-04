@@ -18,8 +18,7 @@
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
     <application>edu2bits</application>
     <module>cloudvm</module>
-    <version>104</version>
-
+    <version>100</version>
     <threadsafe>true</threadsafe>
     <vm>true</vm>
     <vm-settings>
@@ -34,7 +33,6 @@
     </automatic-scaling>-->
     <sessions-enabled>true</sessions-enabled>
     <precompilation-enabled>false</precompilation-enabled>
-
     <system-properties>
         <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
     </system-properties>
