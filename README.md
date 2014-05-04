@@ -23,7 +23,7 @@ id of an app that has been whitelisted for the VM Runtime.
 8. The console like interface is found at this link: /admin.jsp (it's also protected by admin only security constraint)
 9. If you run in any problems or need new features you can submit bugs.
 
-Demo is now available at https://cloudvm-dot-edu2bits.appspot.com/
+[Demo is now available here][8]
 
 Requires [Apache Maven](http://maven.apache.org) 3.0 or greater, and
 JDK 7+ in order to run.  This application needs to be deployed to the
@@ -43,3 +43,4 @@ To see all the available goals for the App Engine plugin, run
 [5]: http://wkhtmltopdf.org/
 [6]: http://www.appengine.ro/
 [7]: https://developers.google.com/appengine/docs/ssl
+[8]: https://cloudvm-dot-edu2bits.appspot.com/
