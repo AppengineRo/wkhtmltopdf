@@ -44,10 +44,14 @@ public class Exec extends HttpServlet {
         if (cmd == null || cmd.isEmpty()) {
             return;
         }
+        response.setContentType("text/plain; charset=UTF-8");
+        response.getWriter().print(exec(cmd));
+        response.getWriter().flush(); // this is required since there is a bug in the VM. It will be fixed in the future
+    }
+
+    public static String exec(String command) {
         try {
-            Process p1 = Runtime.getRuntime().exec(cmd);
-
-
+            Process p1 = Runtime.getRuntime().exec(command);
             p1.waitFor();
             BufferedReader reader =
                     new BufferedReader(new InputStreamReader(p1.getInputStream()));
@@ -62,11 +66,12 @@ public class Exec extends HttpServlet {
             while ((line = reader.readLine()) != null) {
                 sb2.append(line).append("\n");
             }
-            response.getWriter().print(sb.toString() + sb2.toString());
-            response.getWriter().flush(); // this is because of a bug that will get fixed
+            return sb.toString() + sb2.toString();
         } catch (IOException | InterruptedException e) {
             Log.w(e);
+            return e.getMessage();
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods.">
