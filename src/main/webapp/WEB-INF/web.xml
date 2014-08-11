@@ -25,47 +25,6 @@
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
 
-    <servlet>
-        <servlet-name>ro_appengine_server_Htmltopdf</servlet-name>
-        <servlet-class>ro.appengine.server.Htmltopdf</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ro_appengine_server_Htmltopdf</servlet-name>
-        <url-pattern>/render.pdf</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>ro_appengine_server_Exec</servlet-name>
-        <servlet-class>ro.appengine.server.Exec</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ro_appengine_server_Exec</servlet-name>
-        <url-pattern>/exec</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>ro_appengine_server_InitServlet</servlet-name>
-        <servlet-class>ro.appengine.server.InitServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ro_appengine_server_InitServlet</servlet-name>
-        <url-pattern>/init</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <!--this doesn't get called-->
-        <servlet-name>ro_appengine_server_InitServlet</servlet-name>
-        <url-pattern>/_ah/warmup</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>ro_appengine_server_Login</servlet-name>
-        <servlet-class>ro.appengine.server.Login</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ro_appengine_server_Login</servlet-name>
-        <url-pattern>/_ah/login_required</url-pattern>
-    </servlet-mapping>
-
-
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>exec</web-resource-name>
@@ -76,4 +35,15 @@
             <role-name>admin</role-name>
         </auth-constraint>
     </security-constraint>
+
+    <!-- Generated servlet mapping -->
+    <servlet><servlet-name>ro_adma_pdf_Download</servlet-name><servlet-class>ro.adma.pdf.Download</servlet-class></servlet><servlet-mapping><servlet-name>ro_adma_pdf_Download</servlet-name><url-pattern>/download</url-pattern></servlet-mapping>
+    <servlet><servlet-name>ro_adma_pdf_Exec</servlet-name><servlet-class>ro.adma.pdf.Exec</servlet-class></servlet><servlet-mapping><servlet-name>ro_adma_pdf_Exec</servlet-name><url-pattern>/exec</url-pattern></servlet-mapping>
+    <servlet><servlet-name>ro_adma_pdf_HtmlToFirefox</servlet-name><servlet-class>ro.adma.pdf.HtmlToFirefox</servlet-class></servlet><servlet-mapping><servlet-name>ro_adma_pdf_HtmlToFirefox</servlet-name><url-pattern>/render.firefox</url-pattern></servlet-mapping>
+    <servlet><servlet-name>ro_adma_pdf_HtmlToImage</servlet-name><servlet-class>ro.adma.pdf.HtmlToImage</servlet-class></servlet><servlet-mapping><servlet-name>ro_adma_pdf_HtmlToImage</servlet-name><url-pattern>/render.image</url-pattern></servlet-mapping>
+    <servlet><servlet-name>ro_adma_pdf_HtmlToPdf</servlet-name><servlet-class>ro.adma.pdf.HtmlToPdf</servlet-class></servlet><servlet-mapping><servlet-name>ro_adma_pdf_HtmlToPdf</servlet-name><url-pattern>/render.pdf</url-pattern></servlet-mapping>
+    <servlet><servlet-name>ro_adma_pdf_InitServlet</servlet-name><servlet-class>ro.adma.pdf.InitServlet</servlet-class></servlet><servlet-mapping><servlet-name>ro_adma_pdf_InitServlet</servlet-name><url-pattern>/init</url-pattern></servlet-mapping><servlet-mapping><servlet-name>ro_adma_pdf_InitServlet</servlet-name><url-pattern>/_ah/start</url-pattern></servlet-mapping>
+    <servlet><servlet-name>ro_adma_pdf_Login</servlet-name><servlet-class>ro.adma.pdf.Login</servlet-class></servlet><servlet-mapping><servlet-name>ro_adma_pdf_Login</servlet-name><url-pattern>/_ah/login_required</url-pattern></servlet-mapping>
+    <servlet><servlet-name>ro_adma_pdf_MakeDummyProcess</servlet-name><servlet-class>ro.adma.pdf.MakeDummyProcess</servlet-class></servlet><servlet-mapping><servlet-name>ro_adma_pdf_MakeDummyProcess</servlet-name><url-pattern>/render.makeDummyProcess</url-pattern></servlet-mapping>
+    <!-- End Generated servlet mapping -->
 </web-app>

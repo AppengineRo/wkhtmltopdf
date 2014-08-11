@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="wkhtmltopdf:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="wkhtmltopdf-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="wkhtmltopdf:war exploded" />
+    </root>
+  </artifact>
+</component>
