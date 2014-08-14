@@ -19,7 +19,6 @@
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
     <application>edu2bits</application>
     <module>cloudvm</module>
-    <version>13</version>
 
     <threadsafe>true</threadsafe>
     <vm>true</vm>
@@ -48,6 +47,7 @@
         <!-- End Generated servlet mapping -->
     </system-properties>
     <env-variables>
+        <!--this is for cloud debugger :)-->
         <env-var name="CDBG_ENABLE" value="1" />
     </env-variables>
 
