@@ -43,6 +43,7 @@ public class HtmlToPdf extends HttpServlet {
             String pageSize = getPageSize(request);
             String url = request.getParameter("url");
             String fileName = getFileName(request);
+            String fileNameWithoutExtension = fileName.substring(0,fileName.lastIndexOf(".")).replaceAll("\\.","_");
             String zoom = getZoom(request);
             String screenSize = getScreenSize(request);
             String margin = getMargin(request);
@@ -50,10 +51,7 @@ public class HtmlToPdf extends HttpServlet {
 
             Process p;
             Runtime rt = Runtime.getRuntime();
-            if (fileName != null) {
-                response.addHeader("Content-Disposition", "attachment; filename=\"" +
-                        fileName + "\"");
-            }
+            response.addHeader("Content-Disposition", MessageFormat.format("attachment; filename=\"{0}\"", fileName));
             if (url != null && !url.isEmpty()) {
                 //hopefully this stops the program accessing local files.
                 if (!(url.startsWith("http://") || url.startsWith("https://"))) {
@@ -84,12 +82,11 @@ public class HtmlToPdf extends HttpServlet {
                 //save file in cloud storage
                 //create nice folders pdf/year/month/day/year-month-day-hh-min-sec-timestamp.pdf
                 Date today = new Date();
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd/yyyy-MM-dd-HH-mm-ss");
+                SimpleDateFormat folderSdf = new SimpleDateFormat("yyyy/MM/dd/");
 
-                sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
+                folderSdf.setTimeZone(TimeZone.getTimeZone("GMT"));
 
-
-                String filename = "pdf/"+sdf.format(today)+"-"+today.getTime()+".pdf";
+                String filename = "pdf/"+folderSdf.format(today)+fileNameWithoutExtension+"-"+today.getTime()+".pdf";
                 ByteArrayOutputStream pdfByteArrayBuffer = new ByteArrayOutputStream();
                 rewrite(p.getInputStream(), pdfByteArrayBuffer);
                 byte[] bytes = pdfByteArrayBuffer.toByteArray();

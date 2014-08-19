@@ -27,7 +27,7 @@
     <artifactId>wkhtmltopdf</artifactId>
 
     <properties>
-        <appengine.target.version>1.9.7</appengine.target.version>
+        <appengine.target.version>1.9.9</appengine.target.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
