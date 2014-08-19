@@ -14,9 +14,10 @@ import java.io.PrintWriter;
 public class InitServlet extends HttpServlet {
 
     public static final String[] initWkHtmlToPDFCmds = {
-            "tar xf wkhtmltox-0.12.1-c22928d_linux-wheezy-amd64.tar.xz -C /",
+            "dpkg -i wkhtmltox-0.12.1_linux-wheezy-amd64.deb"
+            /*"tar xf wkhtmltox-0.12.1-c22928d_linux-wheezy-amd64.tar.xz -C /",
             "cp /wkhtmltox-0.12.1-c22928d/bin/wkhtmltopdf /usr/local/bin",
-            "cp /wkhtmltox-0.12.1-c22928d/bin/wkhtmltoimage /usr/local/bin"
+            "cp /wkhtmltox-0.12.1-c22928d/bin/wkhtmltoimage /usr/local/bin"*/
     };
     public static final String[] initFirefoxCmds = {
             "wget --quiet https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb",
