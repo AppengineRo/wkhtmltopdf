@@ -72,10 +72,6 @@ public class InitServlet extends HttpServlet {
      * <code>GET</code> and
      * <code>POST</code> methods.
      *
-     * @param request  servlet request
-     * @param response servlet response
-     * @throws javax.servlet.ServletException if a servlet-specific error occurs
-     * @throws java.io.IOException            if an I/O error occurs
      */
     protected static void processRequest(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html; charset=UTF-8");
@@ -100,21 +96,6 @@ public class InitServlet extends HttpServlet {
                 Exec.exec(cmd);
             }
 
-
-            /*String width = "1920";
-            String height = "1080";
-            String xvfbCmd = MessageFormat.format("Xvfb :1 -screen 0 {0}x{1}x24", width, height);
-            String firefoxCmd = MessageFormat.format("firefox --display=:1 -setDefaultBrowser -width {0} -height {1} http://google.com", width, height);
-            int i = 0;
-            while (++i <= 5) {
-                Runtime rt = Runtime.getRuntime();
-                Process xvfbProcess = rt.exec(xvfbCmd);
-                MakeDummyProcess.waitForDummyProcess("Xvfb");
-                Process firefoxProcess = rt.exec(firefoxCmd);
-                MakeDummyProcess.waitForDummyProcess("firefox");
-                Thread.sleep(1000);
-                Exec.exec("pkill Xvfb");
-            }*/
         } catch (Exception e) {
             Log.s(e);
         } finally {
