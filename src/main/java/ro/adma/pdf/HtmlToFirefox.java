@@ -133,10 +133,14 @@ public class HtmlToFirefox extends HttpServlet {
         writeFile("images/html.html", html + "<script type='text/javascript' src='" + getNakedUrl(request) + "/js/onload.js'></script>");
     }
 
-    public static void writeFile(String fileName, String html) throws FileNotFoundException, UnsupportedEncodingException {
-        PrintWriter writer = new PrintWriter(fileName, "UTF-8");
-        writer.print(html);
-        writer.close();
+    public static void writeFile(String fileName, String html) {
+        try {
+            PrintWriter writer = new PrintWriter(fileName, "UTF-8");
+            writer.print(html);
+            writer.close();
+        } catch (FileNotFoundException |UnsupportedEncodingException e){
+            Log.s(e);
+        }
     }
 
     public static String getNakedUrl(HttpServletRequest req) {

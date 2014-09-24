@@ -14,6 +14,7 @@ import java.io.OutputStream;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 import java.util.TimeZone;
 
 @UrlPattern("/render.pdf")
@@ -64,17 +65,24 @@ public class HtmlToPdf extends HttpServlet {
 
             } else {
                 String html = request.getParameter("html");
+                String headerHtml = request.getParameter("header");
+                String footerHtml = request.getParameter("footer");
                 if (html == null) {
                     response.sendError(404);
                     return;
                 }
-                String command = MessageFormat.format("xvfb-run -s=\"{1}\" -a wkhtmltopdf --quiet --disable-local-file-access --zoom {2} --orientation {3} --page-size {4} {5} {0} -",
-                        "-", screenSize, zoom, orientation, pageSize, margin);
+                Random generator = new Random();
+                String i = generator.nextInt(Integer.MAX_VALUE)+"";
+                String htmlUrl = createFileAndGetUrl(html, "html" + i + ".html", request);
+                String headerUrl = createFileAndGetUrl(headerHtml, "header" + i + ".html", request);
+                String footerUrl = createFileAndGetUrl(footerHtml, "footer" + i + ".html", request);
+                String header = getHeader(headerUrl);
+                String footer = getFooter(footerUrl);
+
+                String command = MessageFormat.format("xvfb-run -s=\"{1}\" -a wkhtmltopdf --quiet --disable-local-file-access --zoom {2} --orientation {3} --page-size {4} {5} {6} {7} {0} -",
+                        htmlUrl,  screenSize, zoom, orientation, pageSize, margin, header, footer);
                 Log.i(command);
                 p = rt.exec(command);
-                p.getOutputStream().write(html.getBytes("UTF-8"));
-                p.getOutputStream().flush();
-                p.getOutputStream().close();
             }
             try {
 
@@ -103,6 +111,33 @@ public class HtmlToPdf extends HttpServlet {
         }
     }
 
+    private String getFooter(String footerUrl) {
+        if (footerUrl == null) {
+            return "";
+        } else {
+            return " --footer-html " + footerUrl+" ";
+        }
+    }
+
+    private String getHeader(String headerUrl) {
+        if (headerUrl == null) {
+            return "";
+        } else {
+            return " --header-html " + headerUrl +" ";
+        }
+    }
+
+    private String createFileAndGetUrl(String html, String filename, HttpServletRequest request) {
+        if (html == null || html.isEmpty()) {
+            return null;
+        }
+        html = html.trim();
+        if (!html.startsWith("<!DOCTYPE html> ")) {
+            html = "<!DOCTYPE html> \r\n" + html;
+        }
+        HtmlToFirefox.writeFile("images/"+filename, html);
+        return HtmlToFirefox.getNakedUrl(request) + "/download?filename="+filename+"&timestamp=" + (new Date().getTime());
+    }
 
     // <editor-fold defaultstate="collapsed" desc="Helper functions for arguments">
     private void updateVersion() {
