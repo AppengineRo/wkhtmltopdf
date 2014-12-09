@@ -27,7 +27,7 @@
     <artifactId>wkhtmltopdf</artifactId>
 
     <properties>
-        <appengine.target.version>1.9.11</appengine.target.version>
+        <appengine.target.version>1.9.17</appengine.target.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -123,12 +123,32 @@
             <plugin>
                 <groupId>com.google.appengine</groupId>
                 <artifactId>appengine-maven-plugin</artifactId>
-                <version>${appengine.target.version}</version>
+                <version>1.9.16-SNAPSHOT</version>
                 <configuration>
-                    <server>preview.appengine.google.com</server>
+                    <gcloud_directory>C:/cygwin/home/Bogdan/google-cloud-sdk</gcloud_directory>
+                    <gcloud_project>edu2bits</gcloud_project>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.google.appengine</groupId>
+                <artifactId>gcloud-maven-plugin</artifactId>
+                <version>1.9.17</version>
+                <configuration>
+                    <gcloud_directory>C:/cygwin/home/Bogdan/google-cloud-sdk</gcloud_directory>
+                    <gcloud_project>edu2bits</gcloud_project>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
+    <pluginRepositories>
+        <pluginRepository>
+            <id>sonatype-nexus-snapshots</id>
+            <name>Sonatype Nexus Snapshots</name>
+            <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 </project>
