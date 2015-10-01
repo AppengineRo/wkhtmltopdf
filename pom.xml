@@ -125,6 +125,10 @@
                 <artifactId>appengine-maven-plugin</artifactId>
                 <version>1.9.16-SNAPSHOT</version>
                 <configuration>
+                    <oauth2>false</oauth2>
+                    <passin>false</passin>
+                    <port>8888</port>
+                    <noCookies>false</noCookies>
                     <gcloud_directory>C:/cygwin/home/Bogdan/google-cloud-sdk</gcloud_directory>
                     <gcloud_project>edu2bits</gcloud_project>
                 </configuration>

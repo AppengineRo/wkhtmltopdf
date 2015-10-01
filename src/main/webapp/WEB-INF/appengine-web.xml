@@ -18,13 +18,14 @@
 
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
     <application>edu2bits</application>
+    <version>24-cosmin</version>
     <module>cloudvm</module>
 
     <threadsafe>true</threadsafe>
     <vm>true</vm>
     <vm-settings>
         <setting name="machine_type" value="n1-standard-1"/>
-        <setting name="apt_get_install" value="wget wkhtmltopdf openssl build-essential xorg libssl-dev xvfb libicu48 unzip imagemagick"/>
+        <setting name="apt_get_install" value="wget wkhtmltopdf openssl build-essential xorg libssl-dev xvfb libicu52 unzip imagemagick"/>
         <!--  mlocate-->
     </vm-settings>
     <manual-scaling>

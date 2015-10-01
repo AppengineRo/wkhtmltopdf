@@ -1,6 +1,6 @@
 FROM google/appengine-java
 
-RUN /usr/bin/apt-get -q -y --force-yes update; apt-get --quiet --yes install -- openssl wget build-essential xorg libssl-dev xvfb libicu48 unzip imagemagick
+RUN /usr/bin/apt-get -q -y --force-yes update; apt-get --quiet --yes install -- openssl wget build-essential xorg libssl-dev xvfb libicu52 unzip imagemagick
 RUN wget -q http://storage.googleapis.com/edu2bits.appspot.com/managed_vm.zip -P /download
 RUN unzip -q /download/managed_vm.zip -d /download
 
