@@ -100,7 +100,13 @@ public class HtmlToPdf extends HttpServlet {
                 byte[] bytes = pdfByteArrayBuffer.toByteArray();
                 GcsUtils.writeFile(GcsUtils.getGcsFileName(filename), bytes, "application/pdf");
 
-                response.getOutputStream().write(bytes);
+                if("link".equals(request.getParameter("outputType"))){
+                    String link = "https://storage.googleapis.com/edu2bits.appspot.com/"+filename;
+                    response.getOutputStream().print(link);
+                }else{
+                    response.getOutputStream().write(bytes);
+                }
+
             } finally {
                 p.getInputStream().close();
                 response.getOutputStream().close();

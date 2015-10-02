@@ -34,7 +34,11 @@ public class GcsUtils {
 
     public static void writeFile(GcsFilename gcsFileName, byte[] content, String contentType) {
         try {
-            GcsFileOptions options = new GcsFileOptions.Builder().mimeType(contentType).contentEncoding("UTF-8").build();
+            GcsFileOptions options = new GcsFileOptions.Builder()
+                    .mimeType(contentType)
+                    .acl("public-read")
+                    .contentEncoding("UTF-8")
+                    .build();
             GcsService gcsService = GcsServiceFactory.createGcsService();
             GcsOutputChannel writeChannel;
 
