@@ -128,7 +128,7 @@
                     <oauth2>false</oauth2>
                     <passin>false</passin>
                     <port>8888</port>
-                    <noCookies>false</noCookies>
+                    <noCookies>true</noCookies>
                 </configuration>
                 <!--
                 <version>1.9.16-SNAPSHOT</version>
