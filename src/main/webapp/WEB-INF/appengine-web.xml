@@ -23,17 +23,25 @@
 
     <threadsafe>true</threadsafe>
     <vm>true</vm>
+    <!--
+    <resources>
+        <cpu>1</cpu>
+        <memory-gb>3.75</memory-gb>
+        <disk-size-gb>10</disk-size-gb>
+    </resources>
+    -->
     <vm-settings>
         <setting name="machine_type" value="n1-standard-1"/>
-        <setting name="apt_get_install" value="wget wkhtmltopdf openssl build-essential xorg libssl-dev xvfb libicu52 unzip imagemagick"/>
-        <!--  mlocate-->
+        <setting name="apt_get_install" value="wget openssl build-essential xorg libssl-dev xvfb libicu52 fontconfig libjpeg-dev unzip imagemagick"/>
     </vm-settings>
+
     <manual-scaling>
         <instances>1</instances>
     </manual-scaling>
 
+    <!--this is required if you plan on using HTTPS-->
+    <sessions-enabled>true</sessions-enabled>
 
-    <sessions-enabled>true</sessions-enabled><!--this is required if you plan on using HTTPS-->
     <precompilation-enabled>false</precompilation-enabled>
     <warmup-requests-enabled>true</warmup-requests-enabled>
 
